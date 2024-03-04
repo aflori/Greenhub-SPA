@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="grid grid-cols-2">
-        <Logo_greenhub />
-        <span class="font-serif my-auto"> Greenhub </span>
+    <div class="grid grid-cols-2 my-2">
+        <Logo_greenhub class="h-16" />
+        <span class="font-serif my-auto font-extrabold text-2xl text-info"> Greenhub </span>
     </div>
 </template>

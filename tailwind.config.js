@@ -11,13 +11,13 @@ export default {
         themes: [
             {
                 test: {
-                    "default": "#F9A000",
+                    // "default": "#F9A000",
                     "primary": "#FEE5B4",
                     "secondary": "#267126",
                     "accent": "#0A320A",
                     "neutral": "#B8BCC8",
                     //"base-100": "#ff00ff",
-                    //"info": "#0000ff",
+                    "info": "#F9A000",
                     "success": "green",
                     "warning": "yellow",
                     "error": "red",
