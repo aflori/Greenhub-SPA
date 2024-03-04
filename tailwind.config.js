@@ -8,22 +8,22 @@ export default {
     require("daisyui"),
   ],
   daisyui: {
-      themes: [
-        {
-            test: {
-                "default": "#ffa500",
-                "primary": "red",
-                "secondary": "#ffa500",
-                "accent": "red",
-                "neutral": "#ff00ff",
-                "base-100": "#ff00ff",
-                "info": "#0000ff",
-                "success": "#00ff00",
-                "warning": "#0f766e",
-                "error": "#ff0000",
+        themes: [
+            {
+                test: {
+                    "default": "#F9A000",
+                    "primary": "#FEE5B4",
+                    "secondary": "#267126",
+                    "accent": "#0A320A",
+                    "neutral": "#B8BCC8",
+                    //"base-100": "#ff00ff",
+                    //"info": "#0000ff",
+                    "success": "green",
+                    "warning": "yellow",
+                    "error": "red",
+                },
             },
-        },
-      ],
+        ],
     },
 }
 

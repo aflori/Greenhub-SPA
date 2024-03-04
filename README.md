@@ -38,3 +38,14 @@ Pour utiliser [ESLint](https://eslint.org/)
 ```sh
 npm run lint
 ```
+
+***
+
+# le CSS
+
+pour le CSS, on utilisera les couleurs:
+- default (#F9A000) pour les bandes de rassurences et boutons principaux
+- primary (#FEE5B4) pour les fiches de description
+- secondary (#267126) pour les autres boutons
+- accent (#0A320A) pour l'en-tête/pied-de-pages
+- neutral (#B8BCC8) pour les champs d'input/gris de l'en-tête
