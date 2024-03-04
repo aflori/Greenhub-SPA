@@ -1,12 +1,9 @@
 <script setup>
-import { RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+    import { RouterView } from 'vue-router'
+    import Header from "./components/Header.vue"
 </script>
 
 <template>
-  <RouterView />
+    <Header />
+    <RouterView />
 </template>
-
-<style scoped>
-
-</style>
