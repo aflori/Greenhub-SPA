@@ -41,11 +41,35 @@ npm run lint
 
 ***
 
-# le CSS
+# notes de développeur
+## le CSS
 
-pour le CSS, on utilisera les couleurs:
+Les couleurs du CSS est défini au niveau du fichier 'tailwind.config.js' où les couleurs suivantes correspondent à:
 - info (#F9A000) pour les bandes de rassurences et boutons principaux
 - primary (#FEE5B4) pour les fiches de description
 - secondary (#267126) pour les autres boutons
 - accent (#0A320A) pour l'en-tête/pied-de-pages
 - neutral (#B8BCC8) pour les champs d'input/gris de l'en-tête
+
+## les routes
+
+Pour que les routes soient appelées directement depuis leurs nom, la bonne pratique est d'utiliser le linker comme cela
+```html
+<script setup>
+    import MenuLink from "./molecules/MenuLink.vue"
+</script>
+
+<template>
+...
+    <RouterLink :to="{name: <nom de la route>}">
+        <- contenu ->
+    </RouterLink>
+...
+</template>
+```
+Où les noms des routes fait partie de:
+- home
+- product_list
+- product
+- log_in
+- command
