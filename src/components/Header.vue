@@ -15,6 +15,6 @@
         </div>
     </header>
     <div id="menu" class="flex flex-row justify-evenly container">
-        <MenuLink :url="toto" text="abcd"/>
+        <MenuLink urlName="product list" text="abcd"/>
     </div>
 </template>

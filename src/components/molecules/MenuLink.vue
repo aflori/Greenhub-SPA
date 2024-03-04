@@ -3,15 +3,18 @@
     import { RouterLink } from 'vue-router'
 
     const props = defineProps({
-        url: String,
+        urlName: String,
         text: String
     });
-    console.log(props.url, props.text);
+    const url = {
+        name: props.urlName
+    }
+    console.log(props.urlName);
+    // console.log(route);
 </script>
 
 <template>
-    <RouterLink to="/" class="grid grid-cols-2 my-2">
-        <Logo_greenhub class="h-16" />
-        <span class="font-serif my-auto font-extrabold text-2xl text-info max-sm:invisible max-sm:text-base max-sm:font-extralight"> Greenhub </span>
+    <RouterLink :to="{name: props.urlName}">
+        {{ text }}
     </RouterLink>
 </template>
