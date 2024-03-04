@@ -1,8 +1,16 @@
 <script setup>
-    import Logo_greenhub from "./icons/Logo_greenhub.vue"
-    import LogoData from "./molecules/LogoData.vue"
-    import MenuLink from "./molecules/MenuLink.vue"
-    let toto = "titi";
+    import Logo_greenhub from "./icons/Logo_greenhub.vue";
+    import LogoData from "./molecules/LogoData.vue";
+    import MenuLink from "./molecules/MenuLink.vue";
+
+    // list of redirection element in menue
+    const menuLinks = [
+        {
+            urlName: "product_list",
+            text: "Nos produits"
+        }
+    ];
+
 </script>
 
 <template>
@@ -15,6 +23,6 @@
         </div>
     </header>
     <div id="menu" class="flex flex-row justify-evenly container">
-        <MenuLink urlName="product_list" text="abcd"/>
+        <MenuLink v-bind="link" v-for="link in menuLinks"/>
     </div>
 </template>
