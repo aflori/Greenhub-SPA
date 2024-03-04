@@ -15,7 +15,7 @@ const router = createRouter({
     },
     {
         path: '/products',
-        name: 'product list',
+        name: 'product_list',
         component: Products
     },
     {
@@ -25,7 +25,7 @@ const router = createRouter({
     },
     {
         path: '/login',
-        name: 'Log In',
+        name: 'Log_in',
         component: LogIn
     },
     {
