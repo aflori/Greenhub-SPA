@@ -3,8 +3,7 @@
 </script>
 
 <template>
-  <main>
     <Header />
-    <!-- <button class="btn btn-primary">Hello daisyui</button> -->
-  </main>
+    <main>
+    </main>
 </template>
