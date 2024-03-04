@@ -1,34 +1,39 @@
 # SPA
 
-This template should help get you started developing with Vue 3 in Vite.
+## installation
 
-## Recommended IDE Setup
+Pour pouvoir installer le projet en local, il suffit de cloner le dépôt.
+```sh
+git clone git@github.com:aflori/greenhub-SPA.git
+# or without token
+git clone https://github.com/aflori/greenhub-SPA.git
+```
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+puis d'installer les dépendances
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
-
+Pour vérifier l'installation, on peut lancer en local le serveur
 ```sh
 npm run dev
 ```
+et aller [ici](http://localhost:5173/) une fois le serveur lancé sans erreurs.
 
-### Compile and Minify for Production
+## dépendances
+
+Sera fait plus tard, si on a le temps (trop pressé par le temps)
+
+***
+***
+
+Pour déployer l'application:
 
 ```sh
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+Pour utiliser [ESLint](https://eslint.org/)
 
 ```sh
 npm run lint
