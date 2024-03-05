@@ -1,4 +1,5 @@
 <script setup>
+    import { RouterLink } from 'vue-router'
 
     const props = defineProps({
         product: Object
@@ -15,13 +16,15 @@
 
 <template>
     <div class="card w-96 bg-base-100 shadow-xl p-4 m-2 bg-primary">
-        <h2 class="card-title">
-            {{ product.title }}
-            <!-- <div class="badge badge-secondary">NEW</div> -->
-        </h2>
-        <figure>
-            <img :src="product.image" :alt="product.title" />
-        </figure>
+        <RouterLink :to="{name: 'product', params: {id: product.id}}" class="">
+            <h2 class="card-title">
+                {{ product.title }}
+                <!-- <div class="badge badge-secondary">NEW</div> -->
+            </h2>
+            <figure>
+                <img :src="product.image" :alt="product.title" />
+            </figure>
+        </RouterLink>
         <div class="card-body">
             <p>{{ product.description }}</p>
             <div class="card-actions justify-end flex">

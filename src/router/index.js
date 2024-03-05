@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import Products from '../views/Products.vue'
-import Product from '../views/Products.vue'
+import Product from '../views/Product.vue'
 import LogIn from '../views/LogIn.vue'
 import Command from '../views/Command.vue'
 
