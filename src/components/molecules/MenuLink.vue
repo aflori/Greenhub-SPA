@@ -9,7 +9,7 @@
     const url = {
         name: props.urlName
     }
-    console.log(props.urlName);
+    // console.log(props.urlName);
     // console.log(route);
 </script>
 

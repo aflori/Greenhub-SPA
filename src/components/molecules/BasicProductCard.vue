@@ -8,8 +8,6 @@
         description: String, //--
         image: String, // --
     });
-    console.log(props.urlName);
-    // console.log(route);
 </script>
 
 <template>
