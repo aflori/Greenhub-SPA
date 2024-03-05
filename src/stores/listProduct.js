@@ -5,7 +5,7 @@ import axios from 'axios';
 const apiURL = "https://fakestoreapi.com/products";
 
 function changeToWantedFormat(requestResult) {
-    function changeOneObject(product) {
+    function getCorretlyFormatedObject(product) {
         /*
             received:
             {
@@ -28,18 +28,36 @@ function changeToWantedFormat(requestResult) {
                 image: String,
             }
         */
-        product.categories = [ product.category ]; //conversion into an array
-        product.price = product.price.toString(); //conversion into a String
-        product.price += " €"; //currency
+
+        return {
+            id: product.id,
+            title: product.title,
+            price: product.price.toString() + " €",
+            categories: [ product.category ],
+            description: product.description,
+            image: product.image,
+        }
     }
 
-    for(let i = 0; i<requestResult.length; i++) {
-        changeOneObject(requestResult[i]);
+    function addElement(baseStructure, newElement) {
+        baseStructure[newElement.id] = newElement;
     }
+
+    const listProductCorrectlyFormated = {};
+
+    for(let i = 0; i<requestResult.length; i++) {
+        addElement(
+            listProductCorrectlyFormated,
+            getCorretlyFormatedObject(requestResult[i])
+        );
+    }
+
+    return listProductCorrectlyFormated
 }
 
 export const useProductListStore = defineStore('productList', () => {
-    const products = ref([]);
+
+    const products = ref({});
 
     async function load() {
         try {
@@ -47,7 +65,7 @@ export const useProductListStore = defineStore('productList', () => {
             await axios.get(apiURL).then((result) => {
                 return result.data;
             }).then((data) => {
-                changeToWantedFormat(data);
+                data = changeToWantedFormat(data);
                 products.value = data;
             });
         }
@@ -57,12 +75,21 @@ export const useProductListStore = defineStore('productList', () => {
     };
 
     function getProducts() {
-        if(products.value.length == 0) {
+        function objectIsEmpty(o) {
+            return Object.keys(o).length === 0
+        }
+
+
+        if(objectIsEmpty(products.value)) {
             load();
         }
 
         return products;
     };
 
-    return { products, load, getProducts };
+    function getSingleProduct(id) {
+        return products.value[id];
+    }
+
+    return { products, load, getProducts, getSingleProduct };
 })
