@@ -56,14 +56,11 @@ function changeToWantedFormat(requestResult) {
 }
 
 async function makeRequestAndRecoverJSON(url) {
-    try {
-        const result = await axios.get(url);
-        const json = result.data;
-        return json;
-    }
-    catch (error) {
-        console.log("error - " + url);
-    }
+
+    const result = await axios.get(url);
+    const json = result.data;
+    return json;
+
 }
 function getProductUrl(id) {
     return apiURL + "/" + id.toString();
@@ -74,18 +71,9 @@ export const useProductListStore = defineStore('productList', () => {
     const products = ref({});
 
     async function load() {
-        try {
+        const productList = await makeRequestAndRecoverJSON(apiURL)
 
-            await axios.get(apiURL).then((result) => {
-                return result.data;
-            }).then((data) => {
-                data = changeToWantedFormat(data);
-                products.value = data;
-            });
-        }
-        catch {
-            //we do nothing
-        }
+        products.value = changeToWantedFormat(productList);
     };
 
     function getProducts() {
@@ -102,9 +90,14 @@ export const useProductListStore = defineStore('productList', () => {
     };
 
     async function getSingleProduct(id) {
+
+        function productIsntAlreadyStored(product) {
+            return product === undefined;
+        }
+
         let product = products.value[id];
 
-        if(product === undefined) {
+        if( productIsntAlreadyStored(product) ) {
             const url = getProductUrl(id);
             const product = await makeRequestAndRecoverJSON(url);
 

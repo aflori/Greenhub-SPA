@@ -18,8 +18,6 @@
             product.value = productData
         });
 
-
-    /*console.log(productDatas);*/
 </script>
 
 <template>
