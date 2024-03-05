@@ -10,7 +10,7 @@
 <template>
     <main class="flex flex-row flex-wrap">
 
-        <BasicProductCard v-bind="product" v-for="product in list.products"/>
+        <BasicProductCard :product="product" v-for="product in list.products"/>
 
     </main>
 </template>
