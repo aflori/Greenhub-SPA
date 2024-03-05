@@ -4,40 +4,40 @@ import axios from 'axios';
 
 const apiURL = "https://fakestoreapi.com/products";
 
-function changeToWantedFormat(requestResult) {
-    function getCorretlyFormatedObject(product) {
-        /*
-            received:
-            {
-                id: Number,
-                title: String,
-                price: Number,
-                description: String,
-                category: String,
-                image: String,
-                rating: Object { rate: Number, count: Number }
-            }
-
-            wanted:
-            {
-                id: Number,
-                title: String,
-                price: String, //have to convert price from argument
-                categories: Array, //have to create an array of only 1 category from argument
-                description: String,
-                image: String,
-            }
-        */
-
-        return {
-            id: product.id,
-            title: product.title,
-            price: product.price.toString() + " €",
-            categories: [ product.category ],
-            description: product.description,
-            image: product.image,
+function getCorretlyFormatedObject(product) {
+    /*
+        received:
+        {
+            id: Number,
+            title: String,
+            price: Number,
+            description: String,
+            category: String,
+            image: String,
+            rating: Object { rate: Number, count: Number }
         }
+
+        wanted:
+        {
+            id: Number,
+            title: String,
+            price: String, //have to convert price from number to string with its currency (€)
+            categories: Array, //have to make an array containing the received category
+            description: String,
+            image: String,
+        }
+    */
+    return {
+        id: product.id,
+        title: product.title,
+        price: product.price.toString() + " €",
+        categories: [ product.category ],
+        description: product.description,
+        image: product.image,
     }
+}
+
+function changeToWantedFormat(requestResult) {
 
     function addElement(baseStructure, newElement) {
         baseStructure[newElement.id] = newElement;
@@ -53,6 +53,20 @@ function changeToWantedFormat(requestResult) {
     }
 
     return listProductCorrectlyFormated
+}
+
+async function makeRequestAndRecoverJSON(url) {
+    try {
+        const result = await axios.get(url);
+        const json = result.data;
+        return json;
+    }
+    catch (error) {
+        console.log("error - " + url);
+    }
+}
+function getProductUrl(id) {
+    return apiURL + "/" + id.toString();
 }
 
 export const useProductListStore = defineStore('productList', () => {
@@ -87,7 +101,16 @@ export const useProductListStore = defineStore('productList', () => {
         return products;
     };
 
-    function getSingleProduct(id) {
+    async function getSingleProduct(id) {
+        let product = products.value[id];
+
+        if(product === undefined) {
+            const url = getProductUrl(id);
+            const product = await makeRequestAndRecoverJSON(url);
+
+            return product;
+        }
+
         return products.value[id];
     }
 

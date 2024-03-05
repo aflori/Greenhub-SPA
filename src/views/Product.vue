@@ -1,5 +1,5 @@
 <script setup>
-    import { defineProps } from "vue";
+    import { defineProps, ref } from "vue";
     import { useProductListStore } from "@/stores/listProduct.js";
 
     function getIdOnGoodType(propsParam) {
@@ -10,14 +10,21 @@
         id: String
     })
     const store = useProductListStore();
+    const product = ref({});
 
-    const productDatas = store.getSingleProduct(getIdOnGoodType(props));
+    const productId = getIdOnGoodType(props)
+    store.getSingleProduct(productId)
+        .then((productData) => {
+            product.value = productData
+        });
 
-    console.log(productDatas);
+
+    /*console.log(productDatas);*/
 </script>
 
 <template>
     <main>
-        <!-- <p> {{ productDatas }} </p> -->
+        <!-- the v-if test the product chargement by looking into its main attribute -->
+        <p v-if="product['id'] !== undefined"> {{ product.description }} </p>
     </main>
 </template>
