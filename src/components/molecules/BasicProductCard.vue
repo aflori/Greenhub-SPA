@@ -2,11 +2,11 @@
 
     const props = defineProps({
         id: Number,
-        title: String, //--
+        title: String,
         price: String,
         categories: Array,
-        description: String, //--
-        image: String, // --
+        description: String,
+        image: String,
     });
 </script>
 
@@ -21,7 +21,8 @@
         </figure>
         <div class="card-body">
             <p>{{ props.description }}</p>
-            <div class="card-actions justify-end">
+            <div class="card-actions justify-end flex">
+                <p>{{props.price}}</p>
                 <div class="badge badge-outline" v-for="category in categories">{{category}}</div>
             </div>
         </div>
