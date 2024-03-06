@@ -18,6 +18,11 @@
         product.value = productData
     });
 
+    const numberOfProduct = ref(1);
+
+    function updateNumberOfProduct(newValue) {
+        numberOfProduct.value = newValue;
+    }
 </script>
 
 <template>
@@ -31,7 +36,7 @@
                 <p> {{ product.description }}</p>
                 <div class="card-actions justify-between">
                     <div> <p> {{ product.price }} </p> </div>
-                    <BraketInput />
+                    <BraketInput :numberOfProduct="numberOfProduct" @numberOfProductChanged="updateNumberOfProduct"/>
                     <button class="btn btn-primary">Acheter</button>
                 </div>
               </div>

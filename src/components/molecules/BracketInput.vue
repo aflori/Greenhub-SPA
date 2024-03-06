@@ -1,17 +1,21 @@
 <script setup>
-    import { ref } from "vue";
-    const numberOfProduct = ref(1);
+    import { defineProps, defineEmits } from "vue";
+    const props = defineProps({
+        numberOfProduct: Number
+    });
+
+    const emits = defineEmits(['numberOfProductChanged']);
 
     function updateValue(event) {
         const tag = event.target
         const newValue = tag.value;
 
         if (newValue < 1) {
-            tag.value = numberOfProduct.value;
-            return ;
+            tag.value = props.numberOfProduct;
         }
         else {
-            numberOfProduct.value = Number(newValue);
+            console.log("emited");
+            emits('numberOfProductChanged', Number(newValue));
         }
 
 
