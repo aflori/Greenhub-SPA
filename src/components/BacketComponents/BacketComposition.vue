@@ -1,8 +1,9 @@
 <script setup>
     import { useBacketStore } from "@/stores/backet.js";
+    import { ref } from 'vue';
+    import BacketLine from "./BacketElementInArray.vue";
 
     const backetData = useBacketStore();
-    const products = backetData.listProductInBacket[3]; //read-only - to modify with methods
 
 </script>
 
@@ -18,14 +19,19 @@
                 <th>prix total</th>
               </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>{{ products.product.title }}</td>
-                    <td>{{ products.quantity}}</td>
-                    <td>{{ products.unitPrice}}</td>
-                    <td>{{ products.totalPrice}}</td>
-                </tr>
-            </tbody>
+
+            <BacketLine :products="product" v-for="product in backetData.listProductInBacket"/>
+
         </table>
+        <hr>
+        <strong> total: {{ backetData.totalPrice }} €</strong>
     </div>
 </template>
+
+<style scoped>
+    hr {
+        background-color: black;
+        height: 2px;
+
+    }
+</style>
