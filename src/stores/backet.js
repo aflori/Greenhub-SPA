@@ -26,7 +26,11 @@ export const useBacketStore = defineStore('backet', {
             }
 
             if(productAlreadyInBacket(product, this.listProductInBacket)) {
-                //pass for testing purpose
+                const backetEntry = this.listProductInBacket[product.id];
+                backetEntry.quantity += quantity;
+                backetEntry.totalPrice = backetEntry.unitPrice * backetEntry.quantity;
+
+                this.totalPrice += quantity * backetEntry.unitPrice;
             }
             else {
 
