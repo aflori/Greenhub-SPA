@@ -1,7 +1,7 @@
 <script setup>
     import { defineProps, ref } from "vue";
     import { useProductListStore } from "@/stores/listProduct.js";
-    import BraketInput from "@/components/molecules/BracketInput.vue";
+    import BaketInput from "@/components/molecules/BacketInput.vue";
     function getIdOnGoodType(propsParam) {
         return Number(propsParam.id);
     }
@@ -36,7 +36,7 @@
                 <p> {{ product.description }}</p>
                 <div class="card-actions justify-between">
                     <div> <p> {{ product.price }} </p> </div>
-                    <BraketInput :numberOfProduct="numberOfProduct" @numberOfProductChanged="updateNumberOfProduct"/>
+                    <BaketInput :numberOfProduct="numberOfProduct" @numberOfProductChanged="updateNumberOfProduct"/>
                     <button class="btn btn-primary">Acheter</button>
                 </div>
               </div>
