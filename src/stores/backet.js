@@ -22,7 +22,7 @@ export const useBacketStore = defineStore('backet', {
     actions: {
         addProduct(product, quantity) {
             function productAlreadyInBacket(product, backet) {
-                backet[product.id] === undefined
+                return backet[product.id] != undefined
             }
 
             if(productAlreadyInBacket(product, this.listProductInBacket)) {
@@ -30,11 +30,16 @@ export const useBacketStore = defineStore('backet', {
             }
             else {
 
-                function getPriceInString(price) {
-                    return price.slice(0,-2);
+                function getUnitPrice(price) {
+                    function getPriceInString(price) {
+                        return price.slice(0,-2);
+                    }
+
+                    const unitPriceString = getPriceInString(product.price); //remove currency symbole
+                    return Number(unitPriceString); //number conversion
                 }
-                const unitPriceString = getPriceInString(product.price); //remove currency symbole
-                const unitPrice = Number(unitPriceString); //number conversion
+
+                const unitPrice = getUnitPrice(product.price);
                 const backetEntry = {
                     'product': product,
                     'quantity': quantity,
