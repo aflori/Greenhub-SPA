@@ -101,7 +101,7 @@ export const useProductListStore = defineStore('productList', () => {
             const url = getProductUrl(id);
             const product = await makeRequestAndRecoverJSON(url);
 
-            return product;
+            return getCorretlyFormatedObject(product);
         }
 
         return products.value[id];

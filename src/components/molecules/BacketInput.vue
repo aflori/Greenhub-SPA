@@ -14,7 +14,6 @@
             tag.value = props.numberOfProduct;
         }
         else {
-            console.log("emited");
             emits('numberOfProductChanged', Number(newValue));
         }
 

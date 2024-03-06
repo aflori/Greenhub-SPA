@@ -34,11 +34,11 @@ export const useBacketStore = defineStore('backet', {
                     return price.slice(0,-2);
                 }
                 const unitPriceString = getPriceInString(product.price); //remove currency symbole
-
+                const unitPrice = Number(unitPriceString); //number conversion
                 const backetEntry = {
                     'product': product,
                     'quantity': quantity,
-                    'unitPrice': Number(unitPriceString),
+                    'unitPrice': unitPrice,
                     'totalPrice': unitPrice * quantity,
                 }
 

@@ -1,6 +1,7 @@
 <script setup>
     import { defineProps, ref } from "vue";
     import { useProductListStore } from "@/stores/listProduct.js";
+    import { useBacketStore } from "@/stores/backet.js";
     import BaketInput from "@/components/molecules/BacketInput.vue";
     function getIdOnGoodType(propsParam) {
         return Number(propsParam.id);
@@ -9,11 +10,13 @@
     const props = defineProps({
         id: String
     })
-    const store = useProductListStore();
+    const productStore = useProductListStore();
+    const backetStore = useBacketStore();
+
     const product = ref({});
 
     const productId = getIdOnGoodType(props)
-    store.getSingleProduct(productId)
+    productStore.getSingleProduct(productId)
         .then((productData) => {
         product.value = productData
     });
@@ -22,6 +25,10 @@
 
     function updateNumberOfProduct(newValue) {
         numberOfProduct.value = newValue;
+    }
+    function moveToBracket() {
+        backetStore.addProduct(product.value, numberOfProduct.value);
+        numberOfProduct.value = 1;
     }
 </script>
 
@@ -37,7 +44,7 @@
                 <div class="card-actions justify-between">
                     <div> <p> {{ product.price }} </p> </div>
                     <BaketInput :numberOfProduct="numberOfProduct" @numberOfProductChanged="updateNumberOfProduct"/>
-                    <button class="btn btn-primary">Acheter</button>
+                    <button class="btn btn-primary" @click="moveToBracket">Acheter</button>
                 </div>
               </div>
             </div>
