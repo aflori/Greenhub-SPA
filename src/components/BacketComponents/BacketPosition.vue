@@ -7,5 +7,5 @@
 </script>
 
 <template>
-    <li :class="{'step': true, 'step-neutral': stepIsDone, 'step-primary': stepToDo}">{{ text }}</li>
+    <li :class="{'step': true, 'step-neutral': stepIsDone, 'step-secondary': stepToDo}">{{ text }}</li>
 </template>
