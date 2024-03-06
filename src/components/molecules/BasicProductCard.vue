@@ -15,18 +15,17 @@
 </script>
 
 <template>
-    <div class="card w-96 bg-base-100 shadow-xl p-4 m-2 bg-primary">
+    <div class="card w-96 bg-base-100 shadow-xl p-4 m-2 bg-primary w-80 mx-auto">
         <RouterLink :to="{name: 'product', params: {id: product.id}}" class="">
-            <h2 class="card-title">
+            <h2 class="card-title h-24 text-center mx-auto w-fit">
                 {{ product.title }}
-                <!-- <div class="badge badge-secondary">NEW</div> -->
             </h2>
             <figure>
-                <img :src="product.image" :alt="product.title" />
+                <img :src="product.image" :alt="product.title" class="w-48 h-40" />
             </figure>
         </RouterLink>
-        <div class="card-body">
-            <p>{{ product.description }}</p>
+        <div class="card-body p-4">
+            <p class="leading-6">{{ product.description }}</p>
             <div class="card-actions justify-end flex">
                 <p>{{product.price}}</p>
                 <div class="badge badge-outline" v-for="category in product.categories">{{category}}</div>
