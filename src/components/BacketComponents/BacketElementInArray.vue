@@ -1,14 +1,22 @@
 <script setup>
-    import { defineProps, ref } from "vue";
-    import IconModify from "@/components/icons/Modify.vue";
+    import { defineProps, ref, computed } from "vue";
+    import AddIcon from "@/components/icons/Add_icon.vue";
+    import SubIcon from "@/components/icons/LessIcon.vue";
     import { useBacketStore } from "@/stores/backet.js";
 
     const props = defineProps(["products"]);
+
+    const getTotalPrice = computed(() => {
+        let totalPrice = props.products.totalPrice;
+        totalPrice *= 100;
+        totalPrice = Math.round(totalPrice);
+        return totalPrice/100;
+    })
 </script>
 
 <template>
     <tr class="max-w-full">
-        <td class="custom-max-w ">
+        <td class="custom-max-w-29 ">
             <!-- daisyUI component for showing full title or not // section checkbox -->
             <label class="swap">
                 <input type="checkbox" />
@@ -16,16 +24,21 @@
                 <div class="swap-on"> {{ products.product.title }} </div>
             </label>
         </td>
-        <td> <div class="grid grid-cols-2">
-            <span class="mx-2">{{ products.quantity}}</span> <IconModify />
+        <td> <div class="flex flex-wrap place-content-evenly flex-col-reverse sm:flex-row">
+            <SubIcon />
+            <div class="mx-auto"> <span >{{ products.quantity}}</span> </div>
+            <AddIcon />
         </div> </td>
         <td>{{ products.unitPrice}}</td>
-        <td>{{ products.totalPrice}}</td>
+        <td>{{ getTotalPrice }}</td>
     </tr>
 </template>
 
 <style scoped>
-    .custom-max-w {
+    .custom-max-w-29 {
         max-width: 29vw;
+    }
+    .custom-max-w-10 {
+        max-width: 10vw;
     }
 </style>
