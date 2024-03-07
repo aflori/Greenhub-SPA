@@ -8,8 +8,10 @@
 
 <template>
     <tr>
-        <td>{{ products.product.title }}</td>
-        <td class="flex"> <span class="mx-2">{{ products.quantity}}</span> <IconModify /> </td>
+        <td> {{ products.product.title }} </td>
+        <td> <div class="grid grid-cols-2">
+            <span class="mx-2">{{ products.quantity}}</span> <IconModify />
+        </div> </td>
         <td>{{ products.unitPrice}}</td>
         <td>{{ products.totalPrice}}</td>
     </tr>

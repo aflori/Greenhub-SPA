@@ -21,7 +21,7 @@
                 {{ product.title }}
             </h2>
             <figure>
-                <img :src="product.image" :alt="product.title" class="w-48 h-40" />
+                <img :src="product.image" :alt="product.title" class="w-80 h-80" />
             </figure>
         </RouterLink>
         <div class="card-body p-4">
