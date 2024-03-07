@@ -12,6 +12,10 @@
         totalPrice = Math.round(totalPrice);
         return totalPrice/100;
     })
+
+    const commandStore = useBacketStore();
+
+    // function
 </script>
 
 <template>
@@ -30,7 +34,7 @@
             <AddIcon />
         </div> </td>
         <td>{{ products.unitPrice}}</td>
-        <td>{{ getTotalPrice }}</td>
+        <td>{{ getTotalPrice }} €</td>
     </tr>
 </template>
 

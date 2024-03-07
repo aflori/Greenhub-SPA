@@ -14,7 +14,17 @@ for reference, product object has to be on the form of
 */
 export const useBacketStore = defineStore('backet', {
     state: () => ({
-        listProductInBacket: {}, //sorted by id to avoid duplicates
+        /*
+         * I choose to use an object to use a map (of id) instead of a list
+         * an entry must countains
+         * {
+         *    'product': Product Object,
+         *    'quantity': Number,
+         *    'unitPrice': Number,
+         *    'totalPrice': Number,
+         * }
+        */
+        listProductInBacket: {},
         totalPrice: 0
     }),
     getters: {
@@ -55,6 +65,24 @@ export const useBacketStore = defineStore('backet', {
                 this.listProductInBacket[product.id] = backetEntry;
                 this.totalPrice += backetEntry.totalPrice;
             }
+        },
+
+        modifyQuantityOf(productId, newQuantity) {
+            const productData = this.listProductInBacket[productId];
+
+            //product does not exist
+            if (productData === undefined ) return ;
+
+            //special case where we remove the entry
+            if (newQuantity <= 0) {
+                delete this.listProductInBacket[productId];
+            }
+
+            const newProductTotalPrice = newQuantity * productData.unitPrice;
+            const priceDifference = productData.totalPrice - newProductTotalPrice;
+
+            productData.totalPrice = newProductTotalPrice;
+            this.totalPrice = this.totalPrice - priceDifference;
         }
     }
 });
