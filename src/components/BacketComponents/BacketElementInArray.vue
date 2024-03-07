@@ -15,7 +15,9 @@
 
     const commandStore = useBacketStore();
 
-    // function
+    function addProductToBacket(quantity) {
+        commandStore.modifyQuantityOf(props.products.product.id, props.products.quantity + quantity)
+    }
 </script>
 
 <template>
@@ -29,9 +31,9 @@
             </label>
         </td>
         <td> <div class="flex flex-wrap place-content-evenly flex-col-reverse sm:flex-row">
-            <SubIcon />
-            <div class="mx-auto"> <span >{{ products.quantity}}</span> </div>
-            <AddIcon />
+            <SubIcon class="cursor-pointer" @click="addProductToBacket(-1)"/>
+            <div class="mx-auto"> <span> {{ products.quantity}}</span> </div>
+            <AddIcon class="cursor-pointer" @click="addProductToBacket(+1)"/>
         </div> </td>
         <td>{{ products.unitPrice}}</td>
         <td>{{ getTotalPrice }} €</td>

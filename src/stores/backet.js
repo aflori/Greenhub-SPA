@@ -76,11 +76,13 @@ export const useBacketStore = defineStore('backet', {
             //special case where we remove the entry
             if (newQuantity <= 0) {
                 delete this.listProductInBacket[productId];
+                return ;
             }
 
             const newProductTotalPrice = newQuantity * productData.unitPrice;
             const priceDifference = productData.totalPrice - newProductTotalPrice;
 
+            productData.quantity = newQuantity;
             productData.totalPrice = newProductTotalPrice;
             this.totalPrice = this.totalPrice - priceDifference;
         }
