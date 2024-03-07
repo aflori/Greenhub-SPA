@@ -2,6 +2,7 @@
     import { defineProps, ref, computed } from "vue";
     import AddIcon from "@/components/icons/Add_icon.vue";
     import SubIcon from "@/components/icons/LessIcon.vue";
+    import DeleteIcon from "@/components/icons/Trash.vue";
     import { useBacketStore } from "@/stores/backet.js";
 
     const props = defineProps(["products"]);
@@ -35,7 +36,10 @@
             <div class="mx-auto"> <span> {{ products.quantity}}</span> </div>
             <AddIcon class="cursor-pointer" @click="addProductToBacket(+1)"/>
         </div> </td>
-        <td>{{ products.unitPrice}} €</td>
+        <td class="text-center">
+            <div class="mb-3"> {{ products.unitPrice}} € </div>
+            <DeleteIcon class="mx-auto cursor-pointer"/> 
+        </td>
         <td>{{ getTotalPrice }} €</td>
     </tr>
 </template>
