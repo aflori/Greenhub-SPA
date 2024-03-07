@@ -19,6 +19,10 @@
     function addProductToBacket(quantity) {
         commandStore.modifyQuantityOf(props.products.product.id, props.products.quantity + quantity)
     }
+    function removeProductFromBacket() {
+        commandStore.removeFromBacket(props.products.product.id);
+    }
+
 </script>
 
 <template>
@@ -38,7 +42,7 @@
         </div> </td>
         <td class="text-center">
             <div class="mb-3"> {{ products.unitPrice}} € </div>
-            <DeleteIcon class="mx-auto cursor-pointer"/> 
+            <DeleteIcon class="mx-auto cursor-pointer" @click="removeProductFromBacket"/> 
         </td>
         <td>{{ getTotalPrice }} €</td>
     </tr>

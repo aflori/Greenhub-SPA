@@ -87,10 +87,14 @@ export const useBacketStore = defineStore('backet', {
             this.totalPrice = this.totalPrice - priceDifference;
         },
 
-        deleteFromBacket(productId) {
+        removeFromBacket(productId) {
             if( this.listProductInBacket[productId] === undefined ) return;
 
+
+            const totalPriceProduct = this.listProductInBacket[productId].totalPrice;
             delete this.listProductInBacket[productId];
+
+            this.totalPrice -= totalPriceProduct;
         }
     }
 });
