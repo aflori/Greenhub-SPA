@@ -35,7 +35,7 @@
             <div class="mx-auto"> <span> {{ products.quantity}}</span> </div>
             <AddIcon class="cursor-pointer" @click="addProductToBacket(+1)"/>
         </div> </td>
-        <td>{{ products.unitPrice}}</td>
+        <td>{{ products.unitPrice}} €</td>
         <td>{{ getTotalPrice }} €</td>
     </tr>
 </template>
