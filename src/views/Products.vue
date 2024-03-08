@@ -9,7 +9,7 @@
 <template>
     <main class="flex flex-row flex-wrap justify-evenly">
 
-        <BasicProductCard :product="product" v-for="product in list.products" class="mx-3 my-4"/>
+        <BasicProductCard :product="product" v-for="product in list.products" class="my-2"/>
 
     </main>
 </template>

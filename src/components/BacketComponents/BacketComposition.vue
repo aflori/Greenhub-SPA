@@ -12,7 +12,7 @@
           <table class="table">
             <!-- head -->
             <thead>
-              <tr>
+              <tr class="text-center">
                 <th>produit</th>
                 <th>quantité</th>
                 <th>prix unitaire</th>

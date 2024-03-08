@@ -15,7 +15,7 @@
 </script>
 
 <template>
-    <div class="card w-96 bg-base-100 shadow-xl p-4 m-2 bg-primary w-80 mx-auto">
+    <div class="card w-96 bg-base-100 shadow-xl p-4 m-2 bg-primary w-80 mx-4 min-mx-2">
         <RouterLink :to="{name: 'product', params: {id: product.id}}" class="">
             <h2 class="card-title h-24 text-center mx-auto w-fit">
                 {{ product.title }}

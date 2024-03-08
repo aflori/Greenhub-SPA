@@ -32,7 +32,7 @@
             <label class="swap">
                 <input type="checkbox" />
                 <div class="swap-off custom-max-w truncate my-auto"> {{ products.product.title }} </div>
-                <div class="swap-on"> {{ products.product.title }} </div>
+                <div class="swap-on text-center"> {{ products.product.title }} </div>
             </label>
         </td>
         <td> <div class="flex flex-wrap place-content-evenly flex-col-reverse sm:flex-row">
