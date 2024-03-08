@@ -15,7 +15,7 @@ import { defineStore } from 'pinia';
  * }
  */
 
-export const useFormStore = defineStore('backet', {
+export const useFormStore = defineStore('formStore', {
     state: () => ({
         adressDelivery: {
             firstName: {

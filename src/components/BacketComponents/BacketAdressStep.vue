@@ -1,8 +1,11 @@
 <script setup>
     import { ref,  defineEmits } from 'vue';
+    import { useFormStore } from "@/stores/form.js";
 
     const canSubmitForm = ref(false);
     const emit = defineEmits([ 'next-step' ]);
+    const formStore = useFormStore();
+    const formData = formStore.adressDelivery;
 
     function emitIfFormIsValid() {
         if(canSubmitForm.value) {
