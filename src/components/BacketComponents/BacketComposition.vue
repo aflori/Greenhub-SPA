@@ -24,7 +24,10 @@
 
         </table>
         <hr>
-        <strong> total: {{ backetData.totalPrice }} €</strong>
+        <div>
+            <strong> total: {{ backetData.totalPrice }} €</strong>
+        </div>
+        <button class="btn"> Confirmer la sélection </button>
     </div>
 </template>
 
