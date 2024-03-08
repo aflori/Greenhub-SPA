@@ -1,6 +1,7 @@
 <script setup>
     import { ref,  defineEmits } from 'vue';
     import { useFormStore } from "@/stores/form.js";
+    import FormField from "./BacketFormField.vue";
 
     const canSubmitForm = ref(false);
     const emit = defineEmits([ 'next-step' ]);
@@ -16,7 +17,7 @@
 
 <template>
     <form>
-
+        <FormField v-bind="field" v-for="field in formData" />
         <button type="submit" class="btn" @click.prevent="emitIfFormIsValid()">
             valider
         </button>
