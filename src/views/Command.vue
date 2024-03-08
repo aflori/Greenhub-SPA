@@ -6,7 +6,7 @@
     const position = ref(1);
     const texts = [
         "panier",
-        "livraisons",
+        "livraison",
         "paiement",
         "confirmation"
     ];
@@ -14,7 +14,8 @@
 
 <template>
     <main>
-        <BacketComposition />
+        <BacketComposition @next-step="position++" v-if="position===1" />
+        
         <ul class="steps steps-vertical lg:steps-horizontal">
             <ListElement :text="text" :stepNumber="index+1" :position="position" v-for="(text,index) in texts"/>
         </ul>

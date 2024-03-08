@@ -1,7 +1,9 @@
 <script setup>
     import { useBacketStore } from "@/stores/backet.js";
-    import { ref } from 'vue';
+    import { ref, defineEmits } from 'vue';
     import BacketLine from "./BacketElementInArray.vue";
+
+    // const emits = defineEmits([ "nextStep" ]);]);
 
     const backetData = useBacketStore();
 
@@ -27,7 +29,7 @@
         <div>
             <strong> total: {{ backetData.totalPrice }} €</strong>
         </div>
-        <button class="btn"> Confirmer la sélection </button>
+        <button class="btn" @click="$emit('next-step')"> Confirmer la sélection </button>
     </div>
 </template>
 
