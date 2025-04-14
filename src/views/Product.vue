@@ -1,8 +1,8 @@
 <script setup>
     import { defineProps, ref } from "vue";
     import { useProductListStore } from "@/stores/listProduct.js";
-    import { useBacketStore } from "@/stores/backet.js";
-    import BaketInput from "@/components/molecules/BacketInput.vue";
+    import SingleProductCard from "@/components/productComponent/SingleProductCard.vue";
+    
     function getIdOnGoodType(propsParam) {
         return Number(propsParam.id);
     }
@@ -20,7 +20,7 @@
 
 <template>
     <main class="main-center">
-        <!-- <SingleProductCard :product="product" /> -->
+        <SingleProductCard :product="product" />
         <!-- <CommentsOnProduct :comments="product.comments" /> -->
     </main>
 </template>
