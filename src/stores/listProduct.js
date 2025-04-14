@@ -63,7 +63,7 @@ async function makeRequestAndRecoverJSON(url) {
 
 }
 function getProductUrl(id) {
-    return apiURL + "/" + id.toString();
+    return apiURL + "/" + id;
 }
 
 export const useProductListStore = defineStore('productList', () => {
@@ -91,20 +91,9 @@ export const useProductListStore = defineStore('productList', () => {
 
     async function getSingleProduct(id) {
 
-        function productIsntAlreadyStored(product) {
-            return product === undefined;
-        }
-
-        let product = products.value[id];
-
-        if( productIsntAlreadyStored(product) ) {
-            const url = getProductUrl(id);
-            const product = await makeRequestAndRecoverJSON(url);
-
-            return getCorretlyFormatedObject(product);
-        }
-
-        return products.value[id];
+        const url = getProductUrl(id);
+        const product = await makeRequestAndRecoverJSON(url);
+        return getCorretlyFormatedObject(product);
     }
 
     return { products, load, getProducts, getSingleProduct };
