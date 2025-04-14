@@ -25,6 +25,7 @@ function getCorretlyFormatedObject(product) {
             categories: Array, //have to make an array containing the received category
             description: String,
             image: String,
+            comments: Array
         }
     */
     return {
@@ -34,6 +35,7 @@ function getCorretlyFormatedObject(product) {
         categories: [ product.category ],
         description: product.description,
         image: product.image,
+        comments: [],
     }
 }
 

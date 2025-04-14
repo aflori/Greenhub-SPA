@@ -20,8 +20,8 @@
 
 <template>
     <main class="main-center">
-        
-        
+        <!-- <SingleProductCard :product="product" /> -->
+        <!-- <CommentsOnProduct :comments="product.comments" /> -->
     </main>
 </template>
 
