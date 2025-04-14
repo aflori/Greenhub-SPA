@@ -11,7 +11,7 @@
         id: String
     })
     const productStore = useProductListStore();
-    const product = ref(undefined)
+    const product = ref(null)
     productStore.getSingleProduct(props.id).then( (value) => {
             product.value = value
         }
