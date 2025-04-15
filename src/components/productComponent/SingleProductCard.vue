@@ -1,5 +1,6 @@
 <script setup>
     import { defineProps} from "vue";
+    import DescriptionPart from "./SingleProductCard/DescriptionPart.vue";
 
     const props = defineProps({
         product: Object | null
@@ -14,7 +15,7 @@
         <h1 class="h1"> {{ product.title }} </h1>
         <div class="flex flex-row flex-wrap justify-evenly m-3">
             <img :src="product.image" class="max-w-96 max-h-96" />
-            <!-- <DescriptionPart :description="Object.description" :labels="[]" /> -->
+            <DescriptionPart :description="product.description" :labels="[]" />
         </div>
         <!-- <Payout :price="product.price" /> -->
     </div>
