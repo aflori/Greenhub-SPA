@@ -8,12 +8,15 @@
     })
 
     const number_buyed = ref(1)
+    function updateAmountBuyed(newAmount) {
+        number_buyed.value = newAmount
+    }
 </script>
 
 <template>
     <div class="sm:flex sm:flex-row sm:flex-wrap sm:justify-evenly">
         <p class="m-2"> {{ price }}</p>
-        <AmountNumber :amount="number_buyed" class="m-2" />
+        <AmountNumber :amount="number_buyed" class="m-2" @amount-change="updateAmountBuyed"/>
         <!-- <BuyingButtun class="m-2" /> -->
     </div>
 </template>

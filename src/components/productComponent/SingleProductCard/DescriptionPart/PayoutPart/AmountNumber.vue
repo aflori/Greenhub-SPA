@@ -1,12 +1,12 @@
 <script setup>
-import { defineProps, defineEmits, ref, watch } from 'vue';
+import {  ref, watch } from 'vue';
 import Add_icon from '@/components/icons/Add_icon.vue';
 import LessIcon from '@/components/icons/LessIcon.vue'; 
 
 const props = defineProps({
     amount: Number
 })
-
+const emits = defineEmits(["amountChange"])
 const localAmount = ref(props.amount)
 
 watch(localAmount, (newValue, prevValue) => {
@@ -18,13 +18,14 @@ watch(localAmount, (newValue, prevValue) => {
         newValue = parseInt(newValue)
     }
 
-    if (newValue === NaN) {
+    if (newValue === NaN || newValue < 0) {
         localAmount.value = prevValue;
         return ;
     }
 
     if (newValue !== prevValue) {
         localAmount.value = newValue
+        emits("amountChange", newValue)
     }
 })
 </script>
