@@ -1,19 +1,22 @@
 <script setup>
     import { defineProps } from 'vue';
     import LabelPart from "./DescriptionPart/LabelPart.vue";
+    import PayoutPart from "./DescriptionPart/PayoutPart.vue";
 
     const props = defineProps({
         description: String,
-        labels: Array
+        labels: Array,
+        price: String
     })
 
-    // eventually update description for chort/full version on mobile screen
+    // eventually update description for short/full version on mobile screen
 </script>
 
 <template>
     <div class="flex flex-col items-center max-w-96">
         <p class="p"> {{ description }}</p>
         <LabelPart :labels="labels" class="max-sm:hidden"/>
+        <PayoutPart :price="price" :labels="labels" />
     </div>
 </template>
 
