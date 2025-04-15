@@ -17,7 +17,7 @@
         <h1 class="h1"> {{ product.title }} </h1>
         <div class="flex flex-row flex-wrap justify-evenly m-3">
             <img :src="product.image" class="max-w-96 max-h-96" />
-            <DescriptionPart :description="product.description" :labels="sample_labels" :price="product.price"/>
+            <DescriptionPart :description="product.description" :labels="sample_labels" :price="product.price" :product-id="String(product.id)"/>
         </div>
     </div>
 </template>

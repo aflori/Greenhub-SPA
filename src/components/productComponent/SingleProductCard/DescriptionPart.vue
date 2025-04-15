@@ -2,11 +2,13 @@
     import { defineProps } from 'vue';
     import LabelPart from "./DescriptionPart/LabelPart.vue";
     import PayoutPart from "./DescriptionPart/PayoutPart.vue";
+import Product from '@/views/Product.vue';
 
     const props = defineProps({
         description: String,
         labels: Array,
-        price: String
+        price: String,
+        productId: String
     })
 
     // eventually update description for short/full version on mobile screen
@@ -16,7 +18,7 @@
     <div class="flex flex-col items-center max-w-96">
         <p class="p"> {{ description }}</p>
         <LabelPart :labels="labels" class="max-sm:hidden"/>
-        <PayoutPart :price="price" :labels="labels" />
+        <PayoutPart :price="price" :labels="labels" :product-id="productId"/>
     </div>
 </template>
 

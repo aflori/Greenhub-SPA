@@ -1,10 +1,12 @@
 <script setup>
     import { defineProps, ref } from 'vue';
     import AmountNumber from './PayoutPart/AmountNumber.vue';
-
+    import BuyingButton from './PayoutPart/BuyingButton.vue';
+    
     const props = defineProps({
         price: String,
-        labels: Array
+        labels: Array,
+        productId: String
     })
 
     const number_buyed = ref(1)
@@ -17,7 +19,7 @@
     <div class="sm:flex sm:flex-row sm:flex-wrap sm:justify-evenly">
         <p class="m-2"> {{ price }}</p>
         <AmountNumber :amount="number_buyed" class="m-2" @amount-change="updateAmountBuyed"/>
-        <!-- <BuyingButtun class="m-2" /> -->
+        <BuyingButton class="m-2" :amount="number_buyed" :product-id="productId"/>
     </div>
 </template>
 
