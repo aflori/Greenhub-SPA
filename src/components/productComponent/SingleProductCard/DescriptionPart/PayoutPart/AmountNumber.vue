@@ -12,9 +12,9 @@ const value = ref(props.amount)
 
 <template>
     <div class="flex flex-row flex_wrap">
-        <LessIcon class="cursor-pointer"/>
+        <LessIcon class="cursor-pointer" @click="value--" />
         <input type="text" v-model="value" min="1" class="max-w-8 px-1 text-center border border-black rounded-sm bg-[#B8BCC8]"/>
-        <Add_icon class="cursor-pointer"/>
+        <Add_icon class="cursor-pointer" @click="value++"/>
     </div>
 </template>
 
