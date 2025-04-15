@@ -6,6 +6,7 @@
         labels: Array
     })
 
+    // eventually update description for chort/full version on mobile screen
 </script>
 
 <template>
@@ -25,7 +26,8 @@
     line-height: 25px;
 }
 .img {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
 }
 </style>
