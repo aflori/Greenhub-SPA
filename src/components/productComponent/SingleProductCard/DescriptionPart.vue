@@ -1,5 +1,6 @@
 <script setup>
     import { defineProps } from 'vue';
+    import LabelPart from "./DescriptionPart/LabelPart.vue";
 
     const props = defineProps({
         description: String,
@@ -12,9 +13,7 @@
 <template>
     <div class="flex flex-col items-center max-w-96">
         <p class="p"> {{ description }}</p>
-        <div class="flex flex_row flex-wrap justify-center max-sm:hidden">
-            <img :src="label_image" v-for="label_image in labels" class="img"/>
-        </div>
+        <LabelPart :labels="labels" class="max-sm:hidden"/>
     </div>
 </template>
 
@@ -22,12 +21,6 @@
 .p {
     text-align: justify;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 15px;
-    line-height: 25px;
-}
-.img {
-    width: 40px;
-    height: 40px;
-    margin: 10px;
+    font-size: 14px;
 }
 </style>
