@@ -2,7 +2,8 @@
     import { defineProps, ref } from "vue";
     import { useProductListStore } from "@/stores/listProduct.js";
     import SingleProductCard from "@/components/productComponent/SingleProductCard.vue";
-    
+    import CommentsOnProduct from "@/components/productComponent/CommentsOnProduct.vue";
+
     function getIdOnGoodType(propsParam) {
         return Number(propsParam.id);
     }
@@ -12,8 +13,10 @@
     })
     const productStore = useProductListStore();
     const product = ref(null)
+    const comments = ref(null)
     productStore.getSingleProduct(props.id).then( (value) => {
             product.value = value
+            comments.value = value.comments
         }
     )
 </script>
@@ -21,7 +24,7 @@
 <template>
     <main class="main-center">
         <SingleProductCard :product="product" />
-        <!-- <CommentsOnProduct :comments="product.comments" /> -->
+        <CommentsOnProduct :comments="comments" />
     </main>
 </template>
 
