@@ -1,6 +1,7 @@
 <script setup>
 import NoteInStar from './NewCommentPost/NoteInStar.vue';
 import CommentTextContent from './NewCommentPost/CommentTextContent.vue';
+import ButtonAddComment from './NewCommentPost/ButtonAddComment.vue';
 import { ref } from 'vue';
 
 const note = ref(1)
@@ -19,7 +20,7 @@ function updateComment(newComment) {
         <h3 class="text-center"> poster une nouvelle note </h3>
         <NoteInStar @note-change="updateNote"/>
         <CommentTextContent @comment-change="updateComment"/>
-        <!-- <ButtonAddComment @click.prevent="addComment()" /> -->
+        <ButtonAddComment @click.prevent="addComment()" />
     </form>
 </template>
 
