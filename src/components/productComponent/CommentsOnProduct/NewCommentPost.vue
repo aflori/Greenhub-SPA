@@ -8,7 +8,7 @@ const commentContent = ref("")
 
 <template>
     <form>
-        <h3> poster une nouvelle note </h3>
+        <h3 class="text-center"> poster une nouvelle note </h3>
         <NoteInStar />
         <!-- <CommentTextContent /> -->
         <!-- <ButtonAddComment @click.prevent="addComment()" /> -->

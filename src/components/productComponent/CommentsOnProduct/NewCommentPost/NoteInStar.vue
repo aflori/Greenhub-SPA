@@ -10,7 +10,7 @@ const noteValues = [1, 2, 3, 4, 5]
 </script>
 
 <template>
- <div id="note">
+ <div id="note" class="flex flex-row justify-center">
     <div v-for="i in noteValues">
         <Star_fill v-if="i <= note" />
         <Star v-else />
