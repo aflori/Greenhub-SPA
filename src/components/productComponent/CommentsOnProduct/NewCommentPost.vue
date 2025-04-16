@@ -3,7 +3,7 @@ import NoteInStar from './NewCommentPost/NoteInStar.vue';
 import CommentTextContent from './NewCommentPost/CommentTextContent.vue';
 import { ref } from 'vue';
 
-const note = ref(0)
+const note = ref(1)
 const commentContent = ref("")
 
 function updateNote(newNote) {

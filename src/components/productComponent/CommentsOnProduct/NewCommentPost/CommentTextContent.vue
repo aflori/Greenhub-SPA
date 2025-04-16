@@ -1,17 +1,19 @@
 <script setup>
 import { ref } from 'vue';
 
+const emit = defineEmits([""])
+
 const textContent = ref("")
 
 </script>
 
 <template>
-    <div class="flex flex-col items-center md:flex-row justify-between">
+    <div class="flex flex-col items-center md:flex-row justify-between mx-20 pb-5">
         <div>
             <span> Explications :</span>
         </div>
         <div class="div">
-            <textarea class="bg-[#BEBEBE] w-full h-full  " v-model="textContent" placeholder="ton commentaire">
+            <textarea class="bg-[#BEBEBE] w-full h-full" v-model="textContent" placeholder="ton commentaire">
             </textarea>
         </div>
     </div>
