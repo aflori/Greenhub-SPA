@@ -9,7 +9,7 @@ const props = defineProps({ comments: Array | null})
     <div v-if="comments===null"></div>
     <div v-else class="div rounded-md">
         <!-- <CommentList /> -->
-        <!-- <NewCommentPost /> -->
+        <NewCommentPost />
     </div>
 </template>
 
