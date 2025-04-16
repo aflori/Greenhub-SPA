@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <div>
+    <div class="flex flex-col items-center">
         <strong> {{ pseudo }} </strong>
         <StarNote :note="note" />
     </div>
