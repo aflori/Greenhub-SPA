@@ -16,11 +16,11 @@ function updateComment(newComment) {
 </script>
 
 <template>
-    <form>
+    <form class="flex flex-col">
         <h3 class="text-center"> poster une nouvelle note </h3>
         <NoteInStar @note-change="updateNote"/>
         <CommentTextContent @comment-change="updateComment"/>
-        <ButtonAddComment @click.prevent="addComment()" />
+        <ButtonAddComment class="self-end mb-5 pb-1" @click.prevent="addComment()" />
     </form>
 </template>
 
