@@ -1,5 +1,5 @@
 <script setup>
-
+import StarNote from './StarNote.vue';
 
 const props = defineProps({
     pseudo: String,
@@ -9,7 +9,10 @@ const props = defineProps({
 </script>
 
 <template>
-    <span> ph </span>
+    <div>
+        <strong> {{ pseudo }} </strong>
+        <StarNote :note="note" />
+    </div>
 </template>
 
 <style scoped>
