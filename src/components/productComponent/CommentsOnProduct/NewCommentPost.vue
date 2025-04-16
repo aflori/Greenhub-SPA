@@ -1,8 +1,17 @@
 <script setup>
+import { ref } from 'vue';
+
+const note = ref(0)
+const commentContent = ref("")
 </script>
 
 <template>
-
+    <form>
+        <h3> poster une nouvelle note </h3>
+        <!-- <NoteInStar /> -->
+        <!-- <CommentTextContent /> -->
+        <!-- <ButtonAddComment @click.prevent="addComment()" /> -->
+    </form>
 </template>
 
 <style scoped>
