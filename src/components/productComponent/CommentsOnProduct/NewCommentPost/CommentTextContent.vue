@@ -1,9 +1,13 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
-const emit = defineEmits([""])
+const emit = defineEmits(["commentChange"])
 
 const textContent = ref("")
+
+watch(textContent, (oldValue, newValue) => {
+    emit("commentChange", textContent.value)
+})
 
 </script>
 

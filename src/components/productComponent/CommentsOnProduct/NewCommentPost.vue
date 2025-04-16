@@ -9,13 +9,16 @@ const commentContent = ref("")
 function updateNote(newNote) {
     note.value = newNote
 }
+function updateComment(newComment) {
+    commentContent.value = newComment
+}
 </script>
 
 <template>
     <form>
         <h3 class="text-center"> poster une nouvelle note </h3>
         <NoteInStar @note-change="updateNote"/>
-        <CommentTextContent />
+        <CommentTextContent @comment-change="updateComment"/>
         <!-- <ButtonAddComment @click.prevent="addComment()" /> -->
     </form>
 </template>
