@@ -21,9 +21,9 @@ function addToCart() {
 </script>
 
 <template>
-    <button class="flex flew-row bg-[#1E561E] rounded-md">
+    <button class="flex flew-row bg-[#1E561E] rounded-md sm:min-h-7 max-sm:min-h-9">
         <BuyButtonLogo :color="button_color" class="my-auto ml-1"/>
-        <div class="mx-2">
+        <div class="mx-2 my-auto">
             <span class="span" @click="addToCart"> ACHAT </span>
         </div>
     </button>
