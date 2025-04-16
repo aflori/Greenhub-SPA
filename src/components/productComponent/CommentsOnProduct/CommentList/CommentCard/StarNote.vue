@@ -10,7 +10,7 @@ const possibleNotes= [1,2,3,4,5]
 </script>
 
 <template>
-    <div>
+    <div class="flex flex-row justify-between max-w-32">
         <div v-for="i in possibleNotes">
             <Star_fill v-if="i<=note" />
             <Star v-else />
