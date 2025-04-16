@@ -1,16 +1,19 @@
 <script setup>
 import NewCommentPost from './CommentsOnProduct/NewCommentPost.vue';
 
+const emit = defineEmits(["createComment"])
 const props = defineProps({ comments: Array | null})
 
-
+function createComment(commentData) {
+    emit("createComment", commentData)
+}
 </script>
 
 <template>
     <div v-if="comments===null"></div>
     <div v-else class="div rounded-md">
         <!-- <CommentList /> -->
-        <NewCommentPost />
+        <NewCommentPost @create-comment="createComment"/>
     </div>
 </template>
 

@@ -4,9 +4,6 @@
     import SingleProductCard from "@/components/productComponent/SingleProductCard.vue";
     import CommentsOnProduct from "@/components/productComponent/CommentsOnProduct.vue";
 
-    function getIdOnGoodType(propsParam) {
-        return Number(propsParam.id);
-    }
 
     const props = defineProps({
         id: String
@@ -19,12 +16,16 @@
             comments.value = value.comments
         }
     )
+
+    function createComment(commentData) {
+        comments.value.push(commentData)
+    }
 </script>
 
 <template>
     <main class="main-center">
         <SingleProductCard :product="product" />
-        <CommentsOnProduct :comments="comments" />
+        <CommentsOnProduct :comments="comments" @create-comment="createComment"/>
     </main>
 </template>
 

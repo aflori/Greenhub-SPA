@@ -4,6 +4,7 @@ import CommentTextContent from './NewCommentPost/CommentTextContent.vue';
 import ButtonAddComment from './NewCommentPost/ButtonAddComment.vue';
 import { ref } from 'vue';
 
+const emit = defineEmits(["createComment"])
 const note = ref(1)
 const commentContent = ref("")
 
@@ -12,6 +13,14 @@ function updateNote(newNote) {
 }
 function updateComment(newComment) {
     commentContent.value = newComment
+}
+
+function addComment() {
+    emit("createComment", {
+        pseudo: "mon pseudo",
+        note: note.value,
+        comment: commentContent.value
+    })
 }
 </script>
 
