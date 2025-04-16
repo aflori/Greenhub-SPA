@@ -13,7 +13,7 @@ function createComment(commentData) {
 <template>
     <div v-if="comments===null"></div>
     <div v-else class="div rounded-md">
-        <CommentList :comments="comments"/>
+        <CommentList :comments="comments" class="mt-5"/>
         <NewCommentPost @create-comment="createComment"/>
     </div>
 </template>
@@ -21,6 +21,5 @@ function createComment(commentData) {
 <style scoped>
 .div {
     background-color: rgba(249, 167, 4, 0.3);
-    /* min-height: 100px; */
 }
 </style>
