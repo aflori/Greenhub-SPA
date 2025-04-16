@@ -1,4 +1,5 @@
 <script setup>
+import NewCommentPost from './CommentsOnProduct/NewCommentPost.vue';
 
 const props = defineProps({ comments: Array | null})
 

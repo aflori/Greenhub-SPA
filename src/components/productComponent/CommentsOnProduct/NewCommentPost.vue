@@ -1,4 +1,5 @@
 <script setup>
+import NoteInStar from './NewCommentPost/NoteInStar.vue';
 import { ref } from 'vue';
 
 const note = ref(0)
@@ -8,7 +9,7 @@ const commentContent = ref("")
 <template>
     <form>
         <h3> poster une nouvelle note </h3>
-        <!-- <NoteInStar /> -->
+        <NoteInStar />
         <!-- <CommentTextContent /> -->
         <!-- <ButtonAddComment @click.prevent="addComment()" /> -->
     </form>
