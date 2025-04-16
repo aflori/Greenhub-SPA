@@ -8,7 +8,10 @@
 
 <template>
     <div>
-        {{ comment }}
+        <!-- <IntroField :pseudo="comment.pseudo" :note="comment.note" /> -->
+        <p>
+            {{ comment.comment }}
+        </p>
     </div>
 </template>
 
